@@ -19,7 +19,7 @@ app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
 
-mongoose.connect('mongodb://127.0.0.1:27017/testdb')
+mongoose.connect('mongodb://127.0.0.1:27017/mestodb')
   .then(() => console.log('Connected to the data base'));
 
 app.listen(PORT, () => {
