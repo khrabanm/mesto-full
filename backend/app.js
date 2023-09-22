@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
-const errorHandler = require('./middlewres/error');
+const errorHandler = require('./middlewares/error');
 const router = require('./routes');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
