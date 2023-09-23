@@ -12,7 +12,7 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 const corsOptions = {
-  origin: ['http://localhost:3000', 'mesto.khrabanm.nomoredomainsrocks.ru'],
+  origin: ['http://localhost:3000', 'https://mesto.khrabanm.nomoredomainsrocks.ru', 'https://api.mesto.khrabanm.nomoredomainsrocks.ru'],
   credentials: true,
 };
 
