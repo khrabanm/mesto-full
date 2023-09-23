@@ -3,12 +3,20 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
+const cors = require('cors');
 const errorHandler = require('./middlewares/error');
 const router = require('./routes');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT = 3000 } = process.env;
 const app = express();
+
+const corsOptions = {
+  origin: ['http://localhost:3000', 'mesto.khrabanm.nomoredomainsrocks.ru'],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 app.use(cookieParser());
