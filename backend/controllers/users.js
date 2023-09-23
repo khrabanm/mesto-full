@@ -45,10 +45,12 @@ const createUser = (req, res, next) => {
     }))
     .then(() => {
       res.status(CREATED).send({
-        name,
-        about,
-        avatar,
-        email,
+        data: {
+          name,
+          about,
+          avatar,
+          email,
+        }
       });
     })
     .catch((err) => {
