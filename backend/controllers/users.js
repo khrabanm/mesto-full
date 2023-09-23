@@ -115,12 +115,10 @@ const login = (req, res, next) => {
           if (isValidUser) {
             const newToken = jwt.sign({ _id: user._id }, JWT_SECRET);
             res.cookie('token', newToken, {
-              data: {
-                maxAge: 36000 * 24 * 7,
-                httpOnly: true,
-                sameSite: true,
-              },
-            }).send({ newToken });
+              maxAge: 36000 * 24 * 7,
+              httpOnly: true,
+              sameSite: true,
+            }).send({ data: { newToken }});
           } else {
             next(new ErrorAccess('Неверный логин или пароль'));
           }
