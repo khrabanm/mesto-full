@@ -1,4 +1,5 @@
-export const BASE_URL = "https://api.mesto.khrabanm.nomoredomainsrocks.ru";
+// export const BASE_URL = "https://api.mesto.khrabanm.nomoredomainsrocks.ru";
+export const BASE_URL = 'http://localhost:8080';
 
 function checkApi(res) {
   if (res.ok) {
@@ -27,9 +28,10 @@ export const authorization = (email, password) => {
     body: JSON.stringify({ email: email, password: password }),
   })
     .then((res) => checkApi(res))
-    .then((data) => {
-      if (data.token) {
-        const token = data.token;
+    .then(({ data }) => {
+      console.log('data', data);
+      if (data.newToken) {
+        const token = data.newToken;
         localStorage.setItem("token", token);
         return token;
       }
