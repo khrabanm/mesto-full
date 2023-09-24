@@ -87,8 +87,7 @@ class Api {
 }
 
 const api = new Api({
-    // baseUrl: 'https://api.mesto.khrabanm.nomoredomainsrocks.ru',
-    baseUrl: 'http://localhost:8080',
+    baseUrl: 'https://api.mesto.khrabanm.nomoredomainsrocks.ru',
     headers: {
       'Content-Type': 'application/json'
     }

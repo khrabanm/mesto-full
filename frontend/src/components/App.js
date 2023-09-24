@@ -24,7 +24,6 @@ function App() {
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null)
   const [currentUser, setCurrentUser] = useState({})
-  console.log('currentUser', currentUser);
   const [cards, setCards] = useState([])
   const [isRegister, setRegister] = React.useState(false);
   const [isInfoTooltipPopupOpen, setInfoTooltipPopupOpen] = React.useState(false);
@@ -51,7 +50,6 @@ function App() {
     api
       .getProfile()
       .then(({data}) => {
-        console.log('data', data);
         setCurrentUser(data);
       })
       .catch((err) => {
