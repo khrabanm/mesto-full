@@ -2,7 +2,9 @@ class Api {
     
     constructor(options) {
         // receive url server and headers
-        this._headers = options.headers;
+        this._headers = {
+          ...options.headers, 
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,}
         this._url = options.baseUrl;
       }
     
@@ -85,7 +87,8 @@ class Api {
 }
 
 const api = new Api({
-    baseUrl: 'https://api.mesto.khrabanm.nomoredomainsrocks.ru',
+    // baseUrl: 'https://api.mesto.khrabanm.nomoredomainsrocks.ru',
+    baseUrl: 'http://localhost:8080',
     headers: {
       'Content-Type': 'application/json'
     }
