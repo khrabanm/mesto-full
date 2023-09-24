@@ -1,10 +1,12 @@
+require('dotenv').config();
 const { ValidationError, CastError } = require('mongoose').Error;
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const {
-  JWT_SECRET, ERROR_CODE_UNIQUE, STATUS_OK, CREATED,
+  DEV_SECRET, ERROR_CODE_UNIQUE, STATUS_OK, CREATED,
 } = require('../utils/constants');
+const { JWT_SECRET, NODE_ENV } = process.env;
 const BadRequest = require('../utils/errors/BadRequest');
 const NotFound = require('../utils/errors/NotFound');
 const NotUnique = require('../utils/errors/NotUnique');
@@ -113,7 +115,7 @@ const login = (req, res, next) => {
       bcrypt.compare(String(password), user.password)
         .then((isValidUser) => {
           if (isValidUser) {
-            const newToken = jwt.sign({ _id: user._id }, JWT_SECRET);
+            const newToken = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : DEV_SECRET);
             res.cookie('token', newToken, {
               maxAge: 36000 * 24 * 7,
               httpOnly: true,
