@@ -1,4 +1,4 @@
-const DEV_SECRET = '64de2e00e8b9dd90196255b6';
+const DEV_SECRET = 'dev-secret';
 const STATUS_OK = 200;
 const CREATED = 201;
 const INVAILD_ID = 'NotValidId';
